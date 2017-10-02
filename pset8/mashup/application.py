@@ -49,7 +49,7 @@ def articles():
 def search():
     """Search for places that match query."""
     #retrieve q from HTML form
-    q = requests.args.get("q") + "%"
+    q = request.args.get("q") + "%"
 
     #Finds any postal code, city and state that stars with q
     place = db.execute("SELECT * FROM places WHERE postal_code LIKE :q OR place_name LIKE :q OR admin_name1 LIKE :q", q = q)
